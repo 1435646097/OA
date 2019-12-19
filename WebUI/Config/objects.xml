@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net" default-autowire="constructor">
+  <object name="userInfoBLL" type="BLL.UserInfoBLL, BLL">
+  </object>
+
+</objects>

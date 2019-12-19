@@ -29,10 +29,10 @@ namespace WebUI.Controllers
 
             return View();
         }
-        IUserInfoBLL userInfoBLl = new UserInfoBLL();
+        IUserInfoBLL userInfoBLL { get; set; }
         public ActionResult GetList()
         {
-            IQueryable<UserInfo> list = userInfoBLl.LoadEntity(u => true);
+            IQueryable<UserInfo> list = userInfoBLL.LoadEntity(u => true);
             ViewData["list"] = list;
             return View();
         }

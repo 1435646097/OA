@@ -1,3 +1,4 @@
+using Spring.Web.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.Routing;
 
 namespace WebUI
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : SpringMvcApplication/*System.Web.HttpApplication*/
     {
         protected void Application_Start()
         {
