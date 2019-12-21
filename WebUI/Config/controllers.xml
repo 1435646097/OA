@@ -4,7 +4,9 @@
   <object type="WebUI.Controllers.HomeController, WebUI" singleton="false" >
     <property name="userInfoBLL" ref="userInfoBLL" />
   </object>
-  
-  
+
+  <object type="WebUI.Controllers.LoginController, WebUI" singleton="false" >
+    <property name="userInfoBLL" ref="userInfoBLL" />
+  </object>
   
 </objects>
