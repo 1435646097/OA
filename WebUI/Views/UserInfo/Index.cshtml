@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/themes/metro/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <title>Index</title>
+    <script type="text/javascript">
+        $(function () {
+            loadData();
+        });
+
+        function loadData() {
+            $('#tt').datagrid({
+                url: '/UserInfo/GetUserInfo',
+                title: '用户数据表格',
+                width: 700,
+                height: 400,
+                fitColumns: true, //列自适应
+                nowrap: false,
+                idField: 'ID',//主键列的列明
+                loadMsg: '正在加载用户的信息...',
+                pagination: true,//是否有分页
+                singleSelect: false,//是否单行选择
+                pageSize: 2,//页大小，一页多少条数据
+                pageNumber: 1,//当前页，默认的
+                pageList: [2, 5, 10],
+                queryParams: {},//往后台传递参数
+                columns: [[//c.UserName, c.UserPass, c.Email, c.RegTime
+                    { field: 'ck', checkbox: true, align: 'left', width: 50 },
+                    { field: 'ID', title: '编号', width: 80 },
+                    { field: 'UName', title: '姓名', width: 120 },
+                    { field: 'UPwd', title: '密码', width: 120 },
+                    { field: 'Remark', title: '备注', width: 120 }
+                ]],
+                toolbar: [{
+                    id: 'btnGet',
+                    text: '删除',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        var rows = $('#tt').datagrid('getSelections');
+                        if (!rows || rows.length == 0) {
+                            //alert("请选择要修改的商品！");
+                            $.messager.alert("提醒", "请选择要删除的记录!", "error");
+                            return;
+                        }
+                    }
+                }],
+            });
+        }
+          //将序列化成json格式后日期(毫秒数)转成日期格式
+        function ChangeDateFormat(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+            var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
+            var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
+            return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit">
+        </table>
+    </div>
+</body>
+</html>
