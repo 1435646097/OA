@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Common;
 
 namespace WebUI.Controllers
 {
@@ -13,9 +14,9 @@ namespace WebUI.Controllers
         IBLL.IUserInfoBLL UserInfoBLL { get; set; }
         public ActionResult Index()
         {
-            if (Session["userInfo"] == null)
+            if (Request.Cookies["sessionId"] == null)
             {
-                // filterContext.HttpContext.Response.Redirect("/Login/Index");
+                //filterContext.HttpContext.Response.Redirect("/Login/Index");
                 if (Request.Cookies["cp1"] != null)
                 {
                     string userName = Request.Cookies["cp1"].Value;//获取Cookie存储的用户名
@@ -70,7 +71,10 @@ namespace WebUI.Controllers
                 var userInfo = UserInfoBLL.LoadEntity(u => u.UName == userName && u.UPwd == uPwd).FirstOrDefault();//校验用户名密码。
                 if (userInfo != null)
                 {
-                    Session["userInfo"] = userInfo;
+                    //Session["userInfo"] = userInfo;
+                    string sessionId = Guid.NewGuid().ToString();
+                    MemcacheHelper.Set(sessionId, SerializeHelper.SerializeToString(userInfo), DateTime.Now.AddMinutes(20));
+                    Response.Cookies["sessionId"].Value = sessionId;
                     //判断复选框是否被选中.
                     if (!string.IsNullOrEmpty(Request["autoLogin"]))
                     {

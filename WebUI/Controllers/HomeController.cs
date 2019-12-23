@@ -9,10 +9,11 @@ using System.Web.Mvc;
 
 namespace WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController//Controller
     {
         public ActionResult Index()
         {
+            ViewBag.Userinfo = UserInfo.UName;
             return View();
         }
 

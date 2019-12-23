@@ -48,7 +48,10 @@ namespace Common
                     string userPwd = context.Request.Cookies["cp2"].Value;
                     if (userInfo.UPwd == userPwd)
                     {
-                        context.Session["userInfo"] = userInfo;
+                        //context.Session["userInfo"] = userInfo;
+                        string sessionId = Guid.NewGuid().ToString();
+                        MemcacheHelper.Set(sessionId, Common.SerializeHelper.SerializeToString(userInfo), DateTime.Now.AddMinutes(20));
+                        context.Response.Cookies["sessionId"].Value = sessionId;
                         isSucess = true;
                         return isSucess;
                     }

@@ -43,7 +43,7 @@ namespace Common
         {
             return mc.Set(key, value);
         }
-        public static bool set(string key,object value,DateTime time)
+        public static bool Set(string key,object value,DateTime time)
         {
             return mc.Set(key, value, time);
         }
