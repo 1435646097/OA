@@ -26,7 +26,7 @@ namespace WebUI.Controllers
                     string userName = Request.Cookies["cp1"].Value;//获取Cookie存储的用户名
                     //判断用户是否正确.
                     IApplicationContext ctx = ContextRegistry.GetContext();
-                    IUserInfoBLL userInfoBLL = (IUserInfoBLL)ctx.GetObject("UserInfoService");
+                    IUserInfoBLL userInfoBLL = (IUserInfoBLL)ctx.GetObject("UserInfoBLL");
                     UserInfo userInfo = userInfoBLL.LoadEntity(u => u.UName == userName).FirstOrDefault();
                     if (!Common.WebCommon.ValidateCookieInfo(userInfo))
                     {

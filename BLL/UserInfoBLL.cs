@@ -28,7 +28,7 @@ namespace BLL
                 list = list.Where(u => u.Remark.Contains(userInfoSearch.Remark));
             }
             userInfoSearch.TotalCount = list.Count();
-            return list.OrderBy<UserInfo, int>(u => u.ID).Skip<UserInfo>(userInfoSearch.PageIndex * userInfoSearch.PageSize).Take<UserInfo>(userInfoSearch.PageSize);
+            return list.OrderBy<UserInfo, int>(u => u.ID).Skip<UserInfo>((userInfoSearch.PageIndex-1) * userInfoSearch.PageSize).Take<UserInfo>(userInfoSearch.PageSize);
         }
 
     }
