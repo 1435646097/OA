@@ -65,6 +65,7 @@ namespace DAL
         public IQueryable<T> LoadPageEntity<s>(System.Linq.Expressions.Expression<Func<T, bool>> whereLamda, System.Linq.Expressions.Expression<Func<T, s>> wherePageLamda, int pageSize, int pageIndex, out int totalCount, bool isAsc)
         {
             IQueryable<T> list = Db.Set<T>().Where<T>(whereLamda);
+            totalCount = list.Count<T>();
             if (isAsc)
             {
                 list = list.OrderBy<T, s>(wherePageLamda).Skip<T>((pageIndex - 1) * pageSize).Take<T>(pageSize);
@@ -73,7 +74,6 @@ namespace DAL
             {
                 list = list.OrderByDescending<T, s>(wherePageLamda).Skip<T>((pageIndex - 1) * pageSize).Take<T>(pageSize);
             }
-            totalCount = list.Count<T>();
             return list;
         }
     }

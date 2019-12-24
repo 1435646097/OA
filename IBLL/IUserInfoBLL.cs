@@ -1,4 +1,5 @@
 ﻿using Model;
+using Model.Search;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace IBLL
 {
     public interface IUserInfoBLL:IBaseBLL<UserInfo>
     {
+        IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch);
     }
 }
