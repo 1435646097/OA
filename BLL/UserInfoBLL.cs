@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class UserInfoBLL : BaseBLL<UserInfo>, IUserInfoBLL
+    public partial class UserInfoBLL : BaseBLL<UserInfo>, IUserInfoBLL
     {
-        public override void GetCurrentDAL()
-        {
-            this.CurrentDAL = this.DbSession.UserInfoDAL;
-        }
+        //public override void GetCurrentDAL()
+        //{
+        //    this.CurrentDAL = this.DbSession.UserInfoDAL;
+
+        //}
         public IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch)
         {
             IQueryable<UserInfo> list = CurrentDAL.LoadEntity(u => u.DelFlag == 0);

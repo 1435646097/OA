@@ -9,11 +9,11 @@ using IDAL;
 
 namespace DALFactory
 {
-    public class DbSession:IDbSession
+    public partial class DbSession:IDbSession
     {
         public DbContext DB { get => DbContextFactory.CreateDbContext(); }
 
-        public IUserInfoDAL UserInfoDAL { get => AbstractFactory.CreateIUserInfoDAL(); }
+        //public IUserInfoDAL UserInfoDAL { get => AbstractFactory.CreateIUserInfoDAL(); }
 
 
         public bool SaveChanges()

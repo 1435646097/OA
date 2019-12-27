@@ -27,7 +27,7 @@ namespace WebUI.Controllers
         {
             int pageIndex = Request["page"] != null ? int.Parse(Request["page"]) : 1;//当前页码。
             int pageSize = Request["rows"] != null ? int.Parse(Request["rows"]) : 5;//每页显示记录数。
-          
+
             UserInfoSearch userInfoSearch = new UserInfoSearch()
             {
                 PageSize = pageSize,
@@ -36,7 +36,9 @@ namespace WebUI.Controllers
                 UserName = Request["name"]
             };
             IQueryable<UserInfo> list = userInfoBLL.LoadSearchPage(userInfoSearch);
-            return Json(new { rows = list, total = userInfoSearch.TotalCount });
+            var temp = from u in list
+                       select new { ID = u.ID, UName = u.UName, UPwd = u.UPwd, Remark = u.Remark };
+            return Json(new { rows = temp, total = userInfoSearch.TotalCount }, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// 删除用户

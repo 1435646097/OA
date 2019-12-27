@@ -4,8 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="514f6d5340a44c9b9e5413710fe0fc1b" Name="Diagram1">
+      <Diagram DiagramId="514f6d5340a44c9b9e5413710fe0fc1b" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="ItcastCmsModel.UserInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItcastCmsModel.ActionInfo" Width="1.5" PointX="9.875" PointY="0.5" />
+        <EntityTypeShape EntityType="ItcastCmsModel.Department" Width="1.5" PointX="8.875" PointY="5.625" />
+        <EntityTypeShape EntityType="ItcastCmsModel.R_UserInfo_ActionInfo" Width="1.5" PointX="4" PointY="5.125" />
+        <EntityTypeShape EntityType="ItcastCmsModel.RoleInfo" Width="1.5" PointX="5.5" PointY="0.75" />
+        <AssociationConnector Association="ItcastCmsModel.FK_ActionInfoR_UserInfo_ActionInfo" />
+        <AssociationConnector Association="ItcastCmsModel.FK_UserInfoR_UserInfo_ActionInfo" />
+        <AssociationConnector Association="ItcastCmsModel.DepartmentActionInfo" />
+        <AssociationConnector Association="ItcastCmsModel.RoleInfoActionInfo" />
+        <AssociationConnector Association="ItcastCmsModel.UserInfoDepartment" />
+        <AssociationConnector Association="ItcastCmsModel.UserInfoRoleInfo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

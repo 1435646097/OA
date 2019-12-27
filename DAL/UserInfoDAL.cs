@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class UserInfoDAL:BaseDAL<UserInfo>,IUserInfoDAL
+    public partial class UserInfoDAL:BaseDAL<UserInfo>,IUserInfoDAL
     {
        
     }

@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace DALFactory
 {
-    public class AbstractFactory
+    public partial class AbstractFactory
     {
         static readonly string assmblyPath = ConfigurationManager.AppSettings["assemblyPath"];
         static readonly string nameSpace = ConfigurationManager.AppSettings["nameSpace"];
 
-        public static IUserInfoDAL CreateIUserInfoDAL()
-        {
-            string fullName = nameSpace + ".UserInfoDAL";
-            return CreateInstances(fullName) as IUserInfoDAL;
-        }
+        //public static IUserInfoDAL CreateIUserInfoDAL()
+        //{
+        //    string fullName = nameSpace + ".UserInfoDAL";
+        //    return CreateInstances(fullName) as IUserInfoDAL;
+        //}
         public static object CreateInstances(string fullName)
         {
             Assembly assembly = Assembly.Load(assmblyPath);

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace IDAL
 {
-    public interface IDbSession
+    public partial interface IDbSession
     {
         DbContext DB { get; }
-        IUserInfoDAL UserInfoDAL { get; }
+        //IUserInfoDAL UserInfoDAL { get; }
         bool SaveChanges();
     }
 }

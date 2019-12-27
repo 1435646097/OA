@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IBLL
 {
-    public interface IUserInfoBLL:IBaseBLL<UserInfo>
+    public partial interface IUserInfoBLL:IBaseBLL<UserInfo>
     {
         IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch);
     }

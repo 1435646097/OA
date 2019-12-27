@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IDAL
 {
-    public interface IUserInfoDAL:IBaseDAL<UserInfo>
+    public partial interface IUserInfoDAL:IBaseDAL<UserInfo>
     {
     }
 }
