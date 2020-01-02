@@ -50,16 +50,15 @@ namespace BLL
             this.CurrentDAL = this.DbSession.RoleInfoDAL;
 
         }
-    }   
-	
-	public partial class UserInfoBLL :BaseBLL<UserInfo>,IUserInfoBLL
+    }
+
+    public partial class UserInfoBLL : BaseBLL<UserInfo>, IUserInfoBLL
     {
-        
+
         public override void GetCurrentDAL()
         {
             this.CurrentDAL = this.DbSession.UserInfoDAL;
-
         }
-    }   
-	
+    }
+
 }

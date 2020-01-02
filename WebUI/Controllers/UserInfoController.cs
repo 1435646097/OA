@@ -14,6 +14,7 @@ namespace WebUI.Controllers
     public class UserInfoController : Controller
     {
         IUserInfoBLL userInfoBLL = new UserInfoBLL();
+        IRoleInfoBLL roleInfoBLL = new RoleInfoBLL();
         // GET: UserInfo
         public ActionResult Index()
         {
@@ -84,7 +85,7 @@ namespace WebUI.Controllers
         {
             int id = Convert.ToInt32(Request["id"]);
             UserInfo entity = userInfoBLL.LoadEntity(u => u.ID == id).FirstOrDefault();
-            return Json(entity);
+            return Json(entity, JsonRequestBehavior.AllowGet);
         }
         /// <summary>
         /// 编辑用户
@@ -95,6 +96,41 @@ namespace WebUI.Controllers
             entity.ID = Convert.ToInt32(Request["id"]);
             entity.ModifiedOn = DateTime.Now;
             return Content(userInfoBLL.EditEntity(entity) ? "ok" : "no");
+        }
+        /// <summary>
+        /// 添加用户角色
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult addUserRole()
+        {
+            int uid = Convert.ToInt32(Request["uid"]);
+            UserInfo userInfo = userInfoBLL.LoadEntity(u => u.ID == uid).FirstOrDefault();
+            List<int> roleID = (from r in userInfo.RoleInfo
+                                select r.ID).ToList();
+            IQueryable<RoleInfo> roleInfoList = roleInfoBLL.LoadEntity(r => r.DelFlag == 0);
+            ViewBag.userInfo = userInfo;
+            ViewBag.roleID = roleID;
+            ViewBag.roleInfoList = roleInfoList;
+            return View();
+        }
+        /// <summary>
+        /// 设置用户角色
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SetUserRoleInfo()
+        {
+            int uid = Convert.ToInt32(Request["uid"]);
+            string[] keyArray = Request.Form.AllKeys;
+            List<int> roleIdList = new List<int>();
+            foreach (string key in keyArray)
+            {
+                if (key.StartsWith("cba_"))
+                {
+                    string rId = key.Replace("cba_", "");
+                    roleIdList.Add(Convert.ToInt32(rId));
+                }
+            }
+            return userInfoBLL.SetUserRoleInfo(roleIdList, uid) ? Content("ok") : Content("no");
         }
     }
 }

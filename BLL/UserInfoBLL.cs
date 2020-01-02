@@ -14,7 +14,6 @@ namespace BLL
         //public override void GetCurrentDAL()
         //{
         //    this.CurrentDAL = this.DbSession.UserInfoDAL;
-
         //}
         public IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch)
         {
@@ -29,8 +28,23 @@ namespace BLL
                 list = list.Where(u => u.Remark.Contains(userInfoSearch.Remark));
             }
             userInfoSearch.TotalCount = list.Count();
-            return list.OrderBy<UserInfo, int>(u => u.ID).Skip<UserInfo>((userInfoSearch.PageIndex-1) * userInfoSearch.PageSize).Take<UserInfo>(userInfoSearch.PageSize);
+            return list.OrderBy<UserInfo, int>(u => u.ID).Skip<UserInfo>((userInfoSearch.PageIndex - 1) * userInfoSearch.PageSize).Take<UserInfo>(userInfoSearch.PageSize);
         }
 
+        public bool SetUserRoleInfo(List<int> roleIdList, int uid)
+        {
+            UserInfo userInfo = this.LoadEntity(u => u.ID == uid).FirstOrDefault();
+            if (userInfo != null)
+            {
+                userInfo.RoleInfo.Clear();
+                foreach (int id in roleIdList)
+                {
+                    RoleInfo roleInfo = this.DbSession.RoleInfoDAL.LoadEntity(r => r.ID == id).FirstOrDefault();
+                    userInfo.RoleInfo.Add(roleInfo);
+                }
+                return this.DbSession.SaveChanges();
+            }
+            return false;
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace IBLL
     public partial interface IUserInfoBLL:IBaseBLL<UserInfo>
     {
         IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch);
+        bool SetUserRoleInfo(List<int> roleIdList, int uid);
     }
 }

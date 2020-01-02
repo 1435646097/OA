@@ -16,11 +16,11 @@ namespace DALFactory
         /// <returns></returns>
         public static IDbSession CreateDbSession()
         {
-            DbSession Dbsession = (DbSession)CallContext.GetData("DbSession");
+            IDbSession Dbsession = (IDbSession)CallContext.GetData("DbSession");
             if (Dbsession == null)
             {
                 Dbsession = new DbSession();
-                CallContext.SetData("DbSession",Dbsession);
+                CallContext.SetData("DbSession", Dbsession);
             }
             return Dbsession;
         }

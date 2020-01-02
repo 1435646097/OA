@@ -1,0 +1,52 @@
+﻿@using Model;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>addUserRole</title>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script>
+        function subForm() {
+            $('#formUserRoleInfo').submit();
+        }
+        function alterSetUserRoleInfo(data) {
+            window.parent.SetUserRoleInfo(data);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        欢迎@{
+            UserInfo userInfo = ViewBag.userInfo;
+            <span style="font-size:16px;color:red;">@userInfo.UName</span>
+        }用户设置角色
+        <br />
+        @using (Ajax.BeginForm("SetUserRoleInfo", "UserInfo", new AjaxOptions() { HttpMethod = "post", OnSuccess = "alterSetUserRoleInfo" }, new { id = "formUserRoleInfo" }))
+        {
+            List<int> roleID = ViewBag.roleID;
+            IQueryable<RoleInfo> roleInfoList = ViewBag.roleInfoList;
+            <input type="hidden" value="@userInfo.ID" name="uid" />
+            foreach (RoleInfo role in roleInfoList)
+            {
+                string cba_id = "cba_" + role.ID;
+                if (roleID.Contains(role.ID))
+                {
+                    <input type="checkbox" checked="checked" name="@cba_id"/>@role.RoleName
+                }
+                else
+                {
+                    <input type="checkbox"  name="@cba_id"/>@role.RoleName
+                }
+                <br />
+            }
+        }
+
+    </div>
+</body>
+</html>
