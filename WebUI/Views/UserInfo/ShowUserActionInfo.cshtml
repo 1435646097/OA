@@ -1,0 +1,76 @@
+﻿@using Model
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ShowUserActionInfo</title>
+</head>
+<body>
+    <div>
+        为用户@{
+            UserInfo userInfo = ViewBag.userInfo;
+            <span style="font-size:16px;color:red">@userInfo.UName</span>
+        }分配权限.
+        <br />
+        <table>
+            <tr><th>编号</th><th>权限名称</th><th>Url</th><th>HttpMethod</th><th>操作</th></tr>
+            @{
+                List<ActionInfo> actionInfoList = ViewBag.actionInfoList;
+                List<R_UserInfo_ActionInfo> actionIdList = ViewBag.actionIdList;
+                foreach (var actionInfo in actionInfoList)
+                {
+                    var allowName = "cba_" + actionInfo.ID;
+                    var forbidName = "nocba_" + actionInfo.ID;
+                    <tr>
+                        <td>@actionInfo.ID</td>
+                        <td>@actionInfo.ActionInfoName</td>
+                        <td>@actionInfo.Url</td>
+                        <td>@actionInfo.HttpMethod</td>
+                        <td>
+                            @{
+                                var isExt = (from r_UserInfo_ActionInfo in actionIdList
+                                             where r_UserInfo_ActionInfo.ActionInfoID == actionInfo.ID
+                                             select r_UserInfo_ActionInfo).FirstOrDefault();
+                                if (isExt != null)
+                                {
+                                    if (isExt.IsPass)//允许
+                                    {
+                                        <label for="@allowName">允许</label>
+                                        <input type="radio" id="@allowName" value="true" class="selectionActions" ids="@actionInfo.ID" checked="checked" name="@allowName" />
+
+                                        <label for="@forbidName">禁止</label>
+                                        <input type="radio" id="@forbidName" value="false" class="selectionActions" ids="@actionInfo.ID" name="@allowName" />
+                                    }
+                                    else//禁止
+                                    {
+                                        <label for="@allowName">允许</label>
+                                        <input type="radio" id="@allowName" value="true" class="selectionActions" ids="@actionInfo.ID" name="@allowName" />
+
+                                        <label for="@forbidName">禁止</label>
+                                        <input type="radio" id="@forbidName" value="false" class="selectionActions" ids="@actionInfo.ID" name="@allowName" checked="checked" />
+                                    }
+                                }
+                                else//表示用户没有权限.
+                                {
+                                    <label for="@allowName">允许</label>
+                                    <input type="radio" id="@allowName" value="true" class="selectionActions" ids="@actionInfo.ID" name="@allowName" />
+
+                                    <label for="@forbidName">禁止</label>
+                                    <input type="radio" id="@forbidName" value="false" class="selectionActions" ids="@actionInfo.ID" name="@allowName" />
+
+                                }
+                                <input type="button" value="删除" class="btnClear" ids="@actionInfo.ID" />
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</body>
+</html>

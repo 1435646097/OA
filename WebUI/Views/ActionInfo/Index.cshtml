@@ -93,6 +93,7 @@
                         var serverData = data.split(':');
                         if (serverData[0] == 'ok') {
                             $('#showImg').html("<img src='" + serverData[1] + "' width='50px' height='50px'/>");
+                            $('#hiddenMenuIcon').val(serverData[1]);
                         } else {
                             $.messager.alert("提示", serverData[1], "info");
                         }
@@ -139,6 +140,12 @@
                     }
                 }]
             });
+        }
+        function afterAdd(data) {
+            if (data == 'ok') {
+                $('#addDiv').dialog('close');
+                $('#tt').datagrid("reload");
+            }
         }
     </script>
 </head>

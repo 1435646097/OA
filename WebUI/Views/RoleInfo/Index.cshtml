@@ -18,6 +18,7 @@
     <script>
         $(function () {
             $('#addIframe').css('display', 'none');
+            $('#RoleActionIframe').css('display', 'none');
             loadData();
         });
         //加载表格数据
@@ -56,6 +57,13 @@
                     handler: function () {
                         addRoleInfo();
                     }
+                }, {
+                    id: 'btnAdd',
+                    text: '为角色分配权限',
+                    iconCls: 'icon-add',
+                    handler: function () {
+                        setRoleInfoActionInfo();
+                    }
                 }],
             });
         }
@@ -65,6 +73,48 @@
             var month = date.getMonth() + 1 < 10 ? "0" + (date.getMonth() + 1) : date.getMonth() + 1;
             var currentDate = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
             return date.getFullYear() + "-" + month + "-" + currentDate;
+        }
+        //权限分配完后
+        function alterSetRoleAction(data) {
+            if (data == "ok") {
+                $('#RoleActionIframe').dialog('close');
+            } else {
+                $.messager.alert('提示', "出现异常，请联系管理员", "error");
+            }
+        }
+        //为角色分配权限
+        function setRoleInfoActionInfo() {
+            var rows = $('#tt').datagrid('getSelections');
+            if (rows.length != 1) {
+                $.messager.alert("提示", "只能选择一行数据", "error");
+                return;
+            }
+            var rid = rows[0].id;
+            $('#RoleActionIframe').attr('src', '/RoleInfo/setRoleActionInfo?rid=' + rid).css('display', 'block');
+            $('#RoleActionIframe').dialog({
+                title: '为用户分配权限',
+                collapsible: true,
+                maximizable: true,
+                resizable: true,
+                modal: true,
+                width: 600,
+                height: 600,
+                buttons: [{
+                    text: 'Ok',
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        //提交
+                        var childrenWindow = $('#RoleActionIframe')[0].contentWindow;
+                        childrenWindow.submit();
+                    }
+                }, {
+                    text: 'Cancel',
+                    iconCls: 'icon-no',
+                    handler: function () {
+                        $('#RoleActionIframe').dialog('close');
+                    }
+                }]
+            });
         }
         //添加角色
         function addRoleInfo() {
@@ -107,7 +157,11 @@
         <table id="tt" style="width: 700px;" title="标题，可以使用代码进行初始化，也可以使用这种属性的方式" iconcls="icon-edit">
         </table>
     </div>
+    @*添加用户*@
     <iframe id="addIframe" frameborder="0" width="100%" height="100%">
+    </iframe>
+    @*为用户分配权限*@
+    <iframe id="RoleActionIframe" frameborder="0" width="100%" height="100%">
     </iframe>
 </body>
 </html>

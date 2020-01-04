@@ -1,0 +1,56 @@
+﻿@using Model
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/themes/metro/easyui.css" rel="stylesheet" />
+    <link href="~/Content/themes/icon.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <title>setRoleActionInfo</title>
+    <script>
+        //提交表单
+        function submit() {
+            $('#formRoleAction').submit();
+        }
+        function alterSetRoleAction(data) {
+            window.parent.alterSetRoleAction(data);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        欢迎@{
+            RoleInfo roleInfo = ViewBag.roleInfo;
+            <span style="font-size:16px;color:red;">@roleInfo.RoleName</span>
+        }用户设置权限
+        <br />
+        @using (Ajax.BeginForm("SetRoleAction", "RoleInfo", new AjaxOptions() { HttpMethod = "post", OnSuccess = "alterSetRoleAction" }, new { id = "formRoleAction" }))
+        {
+            List<int> actionID = ViewBag.roleActionidList;
+            IQueryable<ActionInfo> actionInfoList = ViewBag.actionInfoList;
+            <input type="hidden" value="@roleInfo.ID" name="rid" />
+            foreach (ActionInfo action in actionInfoList)
+            {
+                string cba_id = "cba_" + action.ID;
+                if (actionID.Contains(action.ID))
+                {
+                    <input type="checkbox" checked="checked" name="@cba_id" />@action.ActionInfoName
+                }
+                else
+                {
+                    <input type="checkbox" name="@cba_id" />@action.ActionInfoName
+                }
+                <br />
+            }
+        }
+    </div>
+</body>
+</html>

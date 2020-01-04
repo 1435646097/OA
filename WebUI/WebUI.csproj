@@ -1278,6 +1278,8 @@
     <Content Include="Views\RoleInfo\ShowAddRoleInfo.cshtml" />
     <Content Include="Views\UserInfo\addUserRole.cshtml" />
     <Content Include="Views\ActionInfo\Index.cshtml" />
+    <Content Include="Views\RoleInfo\setRoleActionInfo.cshtml" />
+    <Content Include="Views\UserInfo\ShowUserActionInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

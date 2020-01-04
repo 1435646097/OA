@@ -60,5 +60,18 @@ namespace WebUI.Controllers
                 return Content("no:请上传正确的文件");
             }
         }
+        /// <summary>
+        /// 完成添加
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddActionInfo(ActionInfo actionInfo)
+        {
+            actionInfo.DelFlag = 0;
+            actionInfo.SubTime = DateTime.Now;
+            actionInfo.ModifiedOn = DateTime.Now.ToString();
+            actionInfo.Url = actionInfo.Url.ToLower();
+            ActionInfoBLL.AddEntity(actionInfo);
+            return Content("ok");
+        }
     }
 }
