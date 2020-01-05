@@ -12,5 +12,6 @@ namespace IBLL
     {
         IQueryable<UserInfo> LoadSearchPage(UserInfoSearch userInfoSearch);
         bool SetUserRoleInfo(List<int> roleIdList, int uid);
+        bool SetUserActionInfo(int userId, int ActionId, bool isPass);
     }
 }

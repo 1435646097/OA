@@ -9,6 +9,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ShowUserActionInfo</title>
+    <link href="~/Content/tableStyle.css" rel="stylesheet" />
+    <link href="~/Content/jquery-ui.css" rel="stylesheet" />
+    <link href="~/Content/icon.css" rel="stylesheet" />
+    <link href="~/Content/easyui.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.easyui.min.js"></script>
+    <script src="~/Scripts/easyui-lang-zh_CN.js"></script>
+
 </head>
 <body>
     <div>
@@ -72,5 +80,24 @@
             }
         </table>
     </div>
+    <script>
+        $(function () {
+            zd
+            //设置用户权限
+            $('.selectionActions').click(function () {
+                var userId =@userInfo.ID;
+                var isPass = $(this).val();
+                var actionId = $(this).attr('ids');
+                $.post('/UserInfo/setUserActionInfo', { 'userId': userId, 'isPass': isPass, 'actionId': actionId }, function (data) {
+                    var msg = data == 'ok' ? '成功' : '异常';
+                         $.messager.show({
+                             title: '消息',
+                             msg: '修改权限' + msg,
+                             showType:'show'
+                          });
+                })
+            });
+        });
+    </script>
 </body>
 </html>

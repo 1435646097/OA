@@ -142,13 +142,21 @@ namespace WebUI.Controllers
             int uid = Convert.ToInt32(Request["uid"]);
             UserInfo userInfo = UserInfoBLL.LoadEntity(u => u.ID == uid).FirstOrDefault();
             List<R_UserInfo_ActionInfo> actionIdList = (from a in userInfo.R_UserInfo_ActionInfo
-                                      select a).ToList();
+                                                        select a).ToList();
             List<ActionInfo> actionInfoList = ActionInfoBLL.LoadEntity(a => a.DelFlag == 0).ToList();
 
             ViewBag.actionIdList = actionIdList;
             ViewBag.userInfo = userInfo;
             ViewBag.actionInfoList = actionInfoList;
             return View();
+        }
+
+        public ActionResult setUserActionInfo()
+        {
+            int actionId = Convert.ToInt32(Request["actionId"]);
+            int userId = Convert.ToInt32(Request["userId"]);
+            bool isPass = Request["isPass"] == "true" ? true : false;
+            return Content(UserInfoBLL.SetUserActionInfo(userId, actionId, isPass) ? "ok" : "no");
         }
     }
 }

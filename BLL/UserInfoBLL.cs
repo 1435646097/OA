@@ -46,5 +46,29 @@ namespace BLL
             }
             return false;
         }
+        /// <summary>
+        /// 设置用户权限
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="ActionId"></param>
+        /// <param name="isPass"></param>
+        /// <returns></returns>
+        public bool SetUserActionInfo(int userId, int ActionId, bool isPass)
+        {
+            R_UserInfo_ActionInfo r_UserInfo_ActionInfo = this.DbSession.R_UserInfo_ActionInfoDAL.LoadEntity(r => r.UserInfoID == userId && r.ActionInfoID == ActionId).FirstOrDefault();
+            if (r_UserInfo_ActionInfo!=null)
+            {
+                r_UserInfo_ActionInfo.IsPass = isPass;
+            }
+            else
+            {
+                R_UserInfo_ActionInfo r = new R_UserInfo_ActionInfo();
+                r.UserInfoID = userId;
+                r.ActionInfoID = ActionId;
+                r.IsPass = isPass;
+                this.DbSession.R_UserInfo_ActionInfoDAL.AddEntity(r);
+            }
+            return this.DbSession.SaveChanges();
+        }
     }
 }
