@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleInfoBLL.cs" />
+    <Compile Include="R_UserInfo_ActionInfoBLL.cs" />
     <Compile Include="UserInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>

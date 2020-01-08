@@ -14,6 +14,7 @@ namespace WebUI.Controllers
     {
         // GET: ActionInfo
         IActionInfoBLL ActionInfoBLL = new ActionInfoBLL();
+        IR_UserInfo_ActionInfoBLL R_UserInfo_ActionInfoBLL = new R_UserInfo_ActionInfoBLL();
         public ActionResult Index()
         {
             return View();
@@ -72,6 +73,16 @@ namespace WebUI.Controllers
             actionInfo.Url = actionInfo.Url.ToLower();
             ActionInfoBLL.AddEntity(actionInfo);
             return Content("ok");
+        }
+        /// <summary>
+        /// 删除用户权限
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult DeletAction()
+        {
+            int userId = Convert.ToInt32(Request["userId"]);
+            int actionId = Convert.ToInt32(Request["actionId"]);
+            return Content(R_UserInfo_ActionInfoBLL.Delete(userId, actionId) ? "ok" : "no");
         }
     }
 }

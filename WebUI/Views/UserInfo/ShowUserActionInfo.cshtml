@@ -82,7 +82,23 @@
     </div>
     <script>
         $(function () {
-            zd
+            //删除用户的权限
+            $('.btnClear').click(function () {
+                var userId =@userInfo.ID;
+                var actionId = $(this).attr('ids');
+                $.post('/ActionInfo/DeletAction', { 'userId': userId, 'actionId': actionId }, function (data) {
+                    if (data == 'ok') {
+                        $(this).parent().find('.selectionActions').removeAttr('checked');
+                    } else {
+                        $.messager.show({
+                             title: '消息',
+                             msg: '删除异常',
+                             showType:'show'
+                          });
+                    }
+                })
+
+            });
             //设置用户权限
             $('.selectionActions').click(function () {
                 var userId =@userInfo.ID;

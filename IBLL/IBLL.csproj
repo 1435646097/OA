@@ -49,6 +49,7 @@
       <DependentUpon>IBLL.tt</DependentUpon>
     </Compile>
     <Compile Include="IRoleInfoBLL.cs" />
+    <Compile Include="IR_UserInfo_ActionInfoBLL.cs" />
     <Compile Include="IUserInfoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
