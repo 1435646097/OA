@@ -2,5 +2,6 @@
 <objects xmlns="http://www.springframework.net" default-autowire="constructor">
   <object name="userInfoBLL" type="BLL.UserInfoBLL, BLL">
   </object>
-
+  <object name="ActionInfoBLL" type="BLL.ActionInfoBLL, BLL">
+  </object>
 </objects>

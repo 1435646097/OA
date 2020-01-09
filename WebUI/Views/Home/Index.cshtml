@@ -109,16 +109,18 @@
 </body>
 <script type="text/javascript">
     var LINKWIDTH = 90, LINKHEIGHT = 90, TASKBARHEIGHT = 43;
-    var winlinksul =  $("#winlinks ul");
+    var winlinksul = $("#winlinks ul");
     function f_open(url, title, icon) {
         var win = $.ligerDialog.open(
-        { height: 600, url: url, width: 800, showMax: true, showToggle: true, showMin: true, isResize: true, modal: false, title: title, slide: false, buttons: [
-            { text: '确定', onclick: function (item, Dialog, index) {
-                win.hide();
-            }
-            }
-        ]
-        });
+            {
+                height: 600, url: url, width: 800, showMax: true, showToggle: true, showMin: true, isResize: true, modal: false, title: title, slide: false, buttons: [
+                    {
+                        text: '确定', onclick: function (item, Dialog, index) {
+                            win.hide();
+                        }
+                    }
+                ]
+            });
         var task = jQuery.ligerui.win.tasks[win.id];
         if (task) {
             $(".l-taskbar-task-icon:first", task).html('<img src="' + icon + '" />');
@@ -126,19 +128,19 @@
         return win;
     }
     var links = [
-            { icon: '/Content/images/3DSMAX.png', title: '员工管理', url: '/UserInfo/Index' },
-            { icon: '/Content/images/3DSMAX.png', title: '角色管理', url: '/RoleInfo/Index' },
-            { icon: '/Content/images/3DSMAX.png', title: '多表头', url: '../grid/mulheader/grid2.htm' },
-            { icon: '/Content/images/Program Files Folder.png', title: '固定列', url: '../grid/frozen/frozengrid.htm' },
-            { icon: '/Content/images/Program Files Folder.png', title: '可拖动', url: '../base/drag.htm' },
-            { icon: '/Content/images/Alien Folder.png', title: '树', url: '../tree/draggable.htm' },
-            { icon: '/Content/images/Xp-G5 006.png', title: '下拉框', url: '../comboBox/comboBoxGrid.htm' },
-            { icon: '/Content/images/Xp-G5 006.png', title: '下拉框', url: '../comboBox/comboBoxGrid.htm' },
-            { icon: '/Content/images/Alien Folder.png', title: 'layout', url: '../layout/layoutFullHeight.htm' },
-             { icon: '/Content/images/Alien Folder.png', title: 'menu', url: '../menu/menu bar.htm' },
-             { icon: '/Content/images/Xp-G5 006.png', title: 'tab', url: '../tab/tabHtml.htm' },
-             { icon: '/Content/images/3DSMAX.png', title: '分组', url: '../grid/groupable/checkbox.htm' }
-        ];
+        { icon: '/Content/images/3DSMAX.png', title: '员工管理', url: '/UserInfo/Index' },
+        { icon: '/Content/images/3DSMAX.png', title: '角色管理', url: '/RoleInfo/Index' },
+        { icon: '/Content/images/3DSMAX.png', title: '多表头', url: '../grid/mulheader/grid2.htm' },
+        { icon: '/Content/images/Program Files Folder.png', title: '固定列', url: '../grid/frozen/frozengrid.htm' },
+        { icon: '/Content/images/Program Files Folder.png', title: '可拖动', url: '../base/drag.htm' },
+        { icon: '/Content/images/Alien Folder.png', title: '树', url: '../tree/draggable.htm' },
+        { icon: '/Content/images/Xp-G5 006.png', title: '下拉框', url: '../comboBox/comboBoxGrid.htm' },
+        { icon: '/Content/images/Xp-G5 006.png', title: '下拉框', url: '../comboBox/comboBoxGrid.htm' },
+        { icon: '/Content/images/Alien Folder.png', title: 'layout', url: '../layout/layoutFullHeight.htm' },
+        { icon: '/Content/images/Alien Folder.png', title: 'menu', url: '../menu/menu bar.htm' },
+        { icon: '/Content/images/Xp-G5 006.png', title: 'tab', url: '../tab/tabHtml.htm' },
+        { icon: '/Content/images/3DSMAX.png', title: '分组', url: '../grid/groupable/checkbox.htm' }
+    ];
 
     function onResize() {
         var linksHeight = $(window).height() - TASKBARHEIGHT;
@@ -181,8 +183,14 @@
     $.ligerui.win.removeTaskbar = function () { }; //不允许移除
     $.ligerui.win.createTaskbar(); //页面加载时创建任务栏
 
-    linksInit();
-    onResize();
+    $(function () {
+
+        $.getJSON('/Home/GetMenu', {}, function (data) {
+            links = data;
+            linksInit();
+            onResize();
+        })
+    });
 
 </script>
 </html>
