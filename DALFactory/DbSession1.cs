@@ -18,6 +18,18 @@ namespace DALFactory
         public IActionInfoDAL ActionInfoDAL { get => AbstractFactory.CreateIActionInfoDAL(); }
        
 	
+		//private IArticelDal _ArticelDal;
+        public IArticelDAL ArticelDAL { get => AbstractFactory.CreateIArticelDAL(); }
+       
+	
+		//private IArticelClassDal _ArticelClassDal;
+        public IArticelClassDAL ArticelClassDAL { get => AbstractFactory.CreateIArticelClassDAL(); }
+       
+	
+		//private IArticelCommentDal _ArticelCommentDal;
+        public IArticelCommentDAL ArticelCommentDAL { get => AbstractFactory.CreateIArticelCommentDAL(); }
+       
+	
 		//private IDepartmentDal _DepartmentDal;
         public IDepartmentDAL DepartmentDAL { get => AbstractFactory.CreateIDepartmentDAL(); }
        

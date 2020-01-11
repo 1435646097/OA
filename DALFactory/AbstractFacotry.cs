@@ -31,6 +31,51 @@ namespace DALFactory
            return CreateInstances(fullName) as IActionInfoDAL;
         }
 		
+	    public static IArticelDAL CreateIArticelDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".ArticelDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IArticelDAL;
+           string fullName = nameSpace + ".ArticelDAL";
+           return CreateInstances(fullName) as IArticelDAL;
+        }
+		
+	    public static IArticelClassDAL CreateIArticelClassDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".ArticelClassDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IArticelClassDAL;
+           string fullName = nameSpace + ".ArticelClassDAL";
+           return CreateInstances(fullName) as IArticelClassDAL;
+        }
+		
+	    public static IArticelCommentDAL CreateIArticelCommentDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".ArticelCommentDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IArticelCommentDAL;
+           string fullName = nameSpace + ".ArticelCommentDAL";
+           return CreateInstances(fullName) as IArticelCommentDAL;
+        }
+		
 	    public static IDepartmentDAL CreateIDepartmentDAL()
         {
 

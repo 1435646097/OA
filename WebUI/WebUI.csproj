@@ -157,6 +157,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ActionInfoController.cs" />
+    <Compile Include="Controllers\ArticleClassController.cs" />
+    <Compile Include="Controllers\ArticleInfoController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -1237,6 +1239,7 @@
     <Content Include="Content\themes\material\images\Thumbs.db" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\easyui-lang-zh_CN.js" />
+    <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -1282,6 +1285,8 @@
     <Content Include="Views\ActionInfo\Index.cshtml" />
     <Content Include="Views\RoleInfo\setRoleActionInfo.cshtml" />
     <Content Include="Views\UserInfo\ShowUserActionInfo.cshtml" />
+    <Content Include="Views\ArticelClass\Index.cshtml" />
+    <Content Include="Views\ArticleInfo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

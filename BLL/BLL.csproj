@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArticelBLL.cs" />
     <Compile Include="BaseBLL.cs" />
     <Compile Include="BLL.cs">
       <AutoGen>True</AutoGen>

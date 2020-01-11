@@ -17,6 +17,21 @@ namespace DAL
 
     }
 		
+	public partial class ArticelDAL :BaseDAL<Articel>,IArticelDAL
+    {
+
+    }
+		
+	public partial class ArticelClassDAL :BaseDAL<ArticelClass>,IArticelClassDAL
+    {
+
+    }
+		
+	public partial class ArticelCommentDAL :BaseDAL<ArticelComment>,IArticelCommentDAL
+    {
+
+    }
+		
 	public partial class DepartmentDAL :BaseDAL<Department>,IDepartmentDAL
     {
 

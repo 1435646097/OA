@@ -57,6 +57,15 @@
     <Compile Include="ActionInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Articel.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticelClass.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArticelComment.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Department.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -82,6 +91,7 @@
     <Compile Include="R_UserInfo_ActionInfo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Search\ArticleInfoSearch.cs" />
     <Compile Include="Search\BaseSearch.cs" />
     <Compile Include="Search\UserInfoSearch.cs" />
     <Compile Include="UserInfo.cs">

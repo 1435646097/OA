@@ -15,6 +15,21 @@ namespace IDAL
       
     }
 	
+	public partial interface IArticelDAL :IBaseDAL<Articel>
+    {
+      
+    }
+	
+	public partial interface IArticelClassDAL :IBaseDAL<ArticelClass>
+    {
+      
+    }
+	
+	public partial interface IArticelCommentDAL :IBaseDAL<ArticelComment>
+    {
+      
+    }
+	
 	public partial interface IDepartmentDAL :IBaseDAL<Department>
     {
       

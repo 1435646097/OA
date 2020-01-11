@@ -15,6 +15,12 @@ namespace IDAL
 	
 		IActionInfoDAL ActionInfoDAL{get;}
 	
+		IArticelDAL ArticelDAL{get;}
+	
+		IArticelClassDAL ArticelClassDAL{get;}
+	
+		IArticelCommentDAL ArticelCommentDAL{get;}
+	
 		IDepartmentDAL DepartmentDAL{get;}
 	
 		IR_UserInfo_ActionInfoDAL R_UserInfo_ActionInfoDAL{get;}

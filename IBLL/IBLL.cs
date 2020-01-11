@@ -16,6 +16,21 @@ namespace IBLL
        
     }   
 	
+	public partial interface IArticelBLL : IBaseBLL<Articel>
+    {
+       
+    }   
+	
+	public partial interface IArticelClassBLL : IBaseBLL<ArticelClass>
+    {
+       
+    }   
+	
+	public partial interface IArticelCommentBLL : IBaseBLL<ArticelComment>
+    {
+       
+    }   
+	
 	public partial interface IDepartmentBLL : IBaseBLL<Department>
     {
        

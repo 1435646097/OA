@@ -22,6 +22,36 @@ namespace BLL
         }
     }   
 	
+	public partial class ArticelBLL :BaseBLL<Articel>,IArticelBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.ArticelDAL;
+
+        }
+    }   
+	
+	public partial class ArticelClassBLL :BaseBLL<ArticelClass>,IArticelClassBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.ArticelClassDAL;
+
+        }
+    }   
+	
+	public partial class ArticelCommentBLL :BaseBLL<ArticelComment>,IArticelCommentBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.ArticelCommentDAL;
+
+        }
+    }   
+	
 	public partial class DepartmentBLL :BaseBLL<Department>,IDepartmentBLL
     {
         
