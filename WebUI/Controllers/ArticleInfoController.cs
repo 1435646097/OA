@@ -5,6 +5,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using BLL;
+using Common;
 using IBLL;
 using Model;
 using Model.Search;
@@ -46,6 +47,10 @@ namespace WebUI.Controllers
                        select new { ID = a.ID, Title = a.Title, Author = a.Author, Origin = a.Origin, AddDate = a.AddDate, ClassName = from b in a.ArticelClass select b.ClassName };
             return Json(new { total = articleInfoSearch.TotalCount, rows = temp }, JsonRequestBehavior.AllowGet);
         }
+        /// <summary>
+        /// 加载文章类别
+        /// </summary>
+        /// <returns></returns>
         private string LoadSelectData()
         {
             var articleParentList = ArticelClassBLL.LoadEntity(a => a.DelFlag == 0 && a.ParentId == 0);
@@ -60,6 +65,27 @@ namespace WebUI.Controllers
                 }
             }
             return sb.ToString();
+        }
+        public ActionResult ShowAddInfo()
+        {
+            ViewBag.classInfo = LoadSelectData();
+            return View();
+        }
+        /// <summary>
+        /// 加载相关新闻
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult LoadLikeNews()
+        {
+            int id = int.Parse(Request["articelId"]);
+            Articel article = ArticelBLL.LoadEntity(a => a.ID == id).FirstOrDefault();
+            var articleList = (from a in article.ArticelClass
+                               from b in a.Articel
+                               where b.ID != id
+                               select b).OrderBy(a => a.ID).Skip(0).Take(4);
+            var temp = from a in articleList
+                       select new { Id = a.ID, Title = a.Title, AddDate = a.AddDate };
+            return Content(SerializeHelper.SerializeToString(temp));
         }
     }
 }
