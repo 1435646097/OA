@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,7 +11,7 @@
         });
         //加载相关新闻.
         function loadLikeNews() {
-            jQuery.post("/ArticleInfo/LoadLikeNews", { "articelId": $data.ID }, function (data) {
+            jQuery.post("/ArticleInfo/LoadLikeNews", { "articelId": 15 }, function (data) {
                 var serverData = jQuery.parseJSON(data)
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
@@ -72,14 +72,24 @@
                 您当前位置：
     			<a href="javascript:void(0)">ItcastCMS</a> >> 
     			<a href="javascript:void(0)">新闻频道</a> >>
-    				<a href="javascript:void(0)">$data.Title</a> >>
+    				<a href="javascript:void(0)">青岛8月1日起有条件放开楼市限购</a> >>
     				<a href="javascript:void(0)">浏览文章</a> 
     		</div>
     		<div id="articelContent_leftBttom">
-    			<h2>$data.Title</h2> 
-<div class="artcelTop"><span>时间:2015/9/14 23:58:07 </span><span>信息来源:$data.Origin</span><span>点击:$data.Changes</span> <span>【收藏此文】【字体：大 中 小】</span></div>
+    			<h2>青岛8月1日起有条件放开楼市限购</h2> 
+<div class="artcelTop"><span>时间:2015/9/14 23:58:07 </span><span>信息来源:本站原创</span><span>点击:0</span> <span>【收藏此文】【字体：大 中 小】</span></div>
 <div id="splitLine"></div>
-$data.ArticleContent
+<p style="margin: 15px 0px; color: rgb(0, 0, 0); padding: 0px; border: 0px; font-size: 14px; outline: 0px; vertical-align: baseline; list-style: none; line-height: 28px; font-family: 宋体, Arial, Tahoma, Helvetica, sans-serif; text-align: center;">
+	&nbsp;</p>
+<p style="margin: 15px 0px; color: rgb(0, 0, 0); padding: 0px; border: 0px; font-size: 14px; outline: 0px; vertical-align: baseline; list-style: none; line-height: 28px; font-family: 宋体, Arial, Tahoma, Helvetica, sans-serif;">
+	31日下午五时，记者从青岛市国土资源局和房屋管理局获悉，青岛有条件放开限购，使其成为山东省第二个放松限购的城市。</p>
+<p style="margin: 15px 0px; color: rgb(0, 0, 0); padding: 0px; border: 0px; font-size: 14px; outline: 0px; vertical-align: baseline; list-style: none; line-height: 28px; font-family: 宋体, Arial, Tahoma, Helvetica, sans-serif;">
+	　　从2014年8月1日零时起，青岛市黄岛区、城阳区、高新区全面取消限购政策，青岛市南区、市北区、李沧区、崂山区取消140平米及以上的限购政策。</p>
+<p style="margin: 15px 0px; color: rgb(0, 0, 0); padding: 0px; border: 0px; font-size: 14px; outline: 0px; vertical-align: baseline; list-style: none; line-height: 28px; font-family: 宋体, Arial, Tahoma, Helvetica, sans-serif;">
+	　　据了解，受政策等多方因素影响，楼市呈现低迷状态，2014上半年青岛新建住宅成交37749套，同比去年下降近30.52%。与此同时，<a _href="http://www.fangyou.com/" href="http://www.fangyou.com/" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; vertical-align: baseline; list-style: none; color: rgb(1, 47, 122);" target="_blank">二手房</a><a _href="http://news.dichan.com/news/02.html" href="http://news.dichan.com/news/02.html" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; vertical-align: baseline; list-style: none; color: rgb(1, 47, 122);" target="_blank">市场</a>也受公积金<a _href="http://news.dichan.com/news/01.html" href="http://news.dichan.com/news/01.html" style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-style: inherit; vertical-align: baseline; list-style: none; color: rgb(1, 47, 122);" target="_blank">新政</a>与银行贷款紧缩等因素的影响，同样&ldquo;遇冷&rdquo;。上半年全市共成交12008套，较去年同期21013套，成交量下降近42.8%。</p>
+<div>
+	&nbsp;</div>
+
 
                 <!-------相关新闻------->
                   <div id="articelContent_Same">
@@ -95,7 +105,7 @@ $data.ArticleContent
                     <div id="articelComment_top">
                        <span style="font-size:20px;font-weight:bolder;display:block"> 我有话说</span>
                      
-                           <span > 以下是对 <strong>[$data.Title]</strong> 的评论,总共:1条评论</span>
+                           <span > 以下是对 <strong>[青岛8月1日起有条件放开楼市限购]</strong> 的评论,总共:1条评论</span>
                     </div>
                     <div id="articelComment_middle">
                         <ul>

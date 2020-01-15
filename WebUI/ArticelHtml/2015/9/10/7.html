@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -11,7 +11,7 @@
         });
         //加载相关新闻.
         function loadLikeNews() {
-            jQuery.post("/ArticleInfo/LoadLikeNews", { "articelId": $data.ID }, function (data) {
+            jQuery.post("/ArticleInfo/LoadLikeNews", { "articelId": 7 }, function (data) {
                 var serverData = jQuery.parseJSON(data)
                 var serverDataLength = serverData.length;
                 for (var i = 0; i < serverDataLength; i++) {
@@ -72,14 +72,16 @@
                 您当前位置：
     			<a href="javascript:void(0)">ItcastCMS</a> >> 
     			<a href="javascript:void(0)">新闻频道</a> >>
-    				<a href="javascript:void(0)">$data.Title</a> >>
+    				<a href="javascript:void(0)">动感水果壁纸</a> >>
     				<a href="javascript:void(0)">浏览文章</a> 
     		</div>
     		<div id="articelContent_leftBttom">
-    			<h2>$data.Title</h2> 
-<div class="artcelTop"><span>时间:2015/9/14 23:58:07 </span><span>信息来源:$data.Origin</span><span>点击:$data.Changes</span> <span>【收藏此文】【字体：大 中 小】</span></div>
+    			<h2>动感水果壁纸</h2> 
+<div class="artcelTop"><span>时间:2015/9/14 23:58:07 </span><span>信息来源:本站原创</span><span>点击:0</span> <span>【收藏此文】【字体：大 中 小】</span></div>
 <div id="splitLine"></div>
-$data.ArticleContent
+<p>
+	<img src="/ImageFileUp/2015/9/10/198dfffa-2a70-43c4-b96f-5a23a07b2abb.jpg" /></p>
+
 
                 <!-------相关新闻------->
                   <div id="articelContent_Same">
@@ -95,7 +97,7 @@ $data.ArticleContent
                     <div id="articelComment_top">
                        <span style="font-size:20px;font-weight:bolder;display:block"> 我有话说</span>
                      
-                           <span > 以下是对 <strong>[$data.Title]</strong> 的评论,总共:1条评论</span>
+                           <span > 以下是对 <strong>[动感水果壁纸]</strong> 的评论,总共:1条评论</span>
                     </div>
                     <div id="articelComment_middle">
                         <ul>

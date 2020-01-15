@@ -175,8 +175,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ArticelHtml\2015\10\17\18.html" />
-    <Content Include="ArticelHtml\2015\10\17\19.html" />
     <Content Include="ArticelTemplate\ArticelStyle.css" />
     <Content Include="ArticelTemplate\ArticelTemplateInfo.html" />
     <Content Include="ArticelTemplate\images\logo.gif" />
@@ -1950,6 +1948,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ArticelHtml\" />
     <Folder Include="log\" />
     <Folder Include="Picture\" />
   </ItemGroup>

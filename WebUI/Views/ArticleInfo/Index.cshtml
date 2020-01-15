@@ -43,6 +43,13 @@
                 loadData(pars);
             });
         }
+         //将序列化成json格式后日期(毫秒数)转成日期格式
+        function ChangeDateFormat(cellval) {
+            var date = new Date(parseInt(cellval.replace("/Date(", "").replace(")/", ""), 10));
+            var month =  date.getMonth() + 1;
+            var currentDate =  date.getDate();
+            return date.getFullYear() + "/" + month + "/" + currentDate;
+        }
         function loadData(pars) {
             $('#tt').datagrid({
                 url: '/ArticleInfo/GetArticelInfo',
@@ -71,6 +78,13 @@
                         formatter: function (value, row, index) {
                             return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)")).toLocaleDateString());
                         }
+                    }, {
+                        field: 'articleDetail', title: '文章详情', width: 80, align: 'right',
+                        formatter: function (value, row, index) {
+                            var addDate = ChangeDateFormat(row.AddDate);
+
+                            return "<a href='/ArticelHtml/" + addDate + "/" + row.ID + ".html'>详情</a>"
+                        }
                     }
                 ]],
                 toolbar: [{
@@ -94,14 +108,29 @@
                     iconCls: 'icon-edit',
                     handler: function () {
 
-
+                    }
+                }, {
+                    id: 'btnEdit',
+                    text: '一站式静态化',
+                    iconCls: 'icon-edit',
+                    handler: function () {
+                        setStaticPage();
                     }
                 }],
             });
         }
+        //一站式静态化
+        function setStaticPage() {
+            $.messager.confirm("提示", "你确定要一站式静态化吗？这可能需要一点时间", function (r) {
+                if (r) {
+                    $.post('/ArticleInfo/setStaticPage', {}, function () {
+                        $.messager.alert('提示', '静态化成功', 'info');
+                    });
+                }
+            });
+        }
         //添加新闻信息
         function addArticleInfo() {
-
             $('#addDiv').css('display', 'block');
             $('#addIframe').attr('src', '/ArticleInfo/ShowAddInfo');
             $('#addDiv').dialog({

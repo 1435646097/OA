@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -71,6 +72,8 @@ namespace WebUI.Controllers
             ViewBag.classInfo = LoadSelectData();
             return View();
         }
+
+
         /// <summary>
         /// 加载相关新闻
         /// </summary>
@@ -86,6 +89,36 @@ namespace WebUI.Controllers
             var temp = from a in articleList
                        select new { Id = a.ID, Title = a.Title, AddDate = a.AddDate };
             return Content(SerializeHelper.SerializeToString(temp));
+        }
+        /// <summary>
+        /// 一站式静态化
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult setStaticPage()
+        {
+            var articleList = ArticelBLL.LoadEntity(a => a.DelFlag == 0);
+            foreach (Articel article in articleList)
+            {
+                StaticPage(article);
+            }
+            return Content("ok");
+        }
+        /// <summary>
+        /// 静态化页面
+        /// </summary>
+        /// <returns></returns>
+        public void StaticPage(Articel article)
+        {
+
+            string htmlFile = Common.NVelocityHelper.RenderTemplate("ArticelTemplateInfo", article, "/ArticelTemplate/");
+            DateTime addDate = article.AddDate;
+            string dir = "/ArticelHtml/" + addDate.Year + "/" + addDate.Month + "/" + addDate.Day+"/";
+            if (!Directory.Exists(Server.MapPath(dir)))
+            {
+                Directory.CreateDirectory(Server.MapPath(dir));
+            }
+            string fulePath = dir + article.ID + ".html";
+            System.IO.File.WriteAllText(Server.MapPath(fulePath), htmlFile);
         }
     }
 }
