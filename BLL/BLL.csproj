@@ -58,9 +58,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleInfoBLL.cs" />
     <Compile Include="R_UserInfo_ActionInfoBLL.cs" />
+    <Compile Include="SensitiveWordBLL.cs" />
     <Compile Include="UserInfoBLL.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{d71f7f98-7dbc-499a-aa4c-2d58696fcbd7}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DALFactory\DALFactory.csproj">
       <Project>{B3685120-87E3-4243-AED0-BA7D1B1B7F66}</Project>
       <Name>DALFactory</Name>

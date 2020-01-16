@@ -121,6 +121,21 @@ namespace DALFactory
            return CreateInstances(fullName) as IRoleInfoDAL;
         }
 		
+	    public static ISensitiveWordDAL CreateISensitiveWordDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".SensitiveWordDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as ISensitiveWordDAL;
+           string fullName = nameSpace + ".SensitiveWordDAL";
+           return CreateInstances(fullName) as ISensitiveWordDAL;
+        }
+		
 	    public static IUserInfoDAL CreateIUserInfoDAL()
         {
 

@@ -47,6 +47,11 @@ namespace DAL
 
     }
 		
+	public partial class SensitiveWordDAL :BaseDAL<SensitiveWord>,ISensitiveWordDAL
+    {
+
+    }
+		
 	public partial class UserInfoDAL :BaseDAL<UserInfo>,IUserInfoDAL
     {
 

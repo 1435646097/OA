@@ -82,6 +82,16 @@ namespace BLL
         }
     }   
 	
+	public partial class SensitiveWordBLL :BaseBLL<SensitiveWord>,ISensitiveWordBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.SensitiveWordDAL;
+
+        }
+    }   
+	
 	public partial class UserInfoBLL :BaseBLL<UserInfo>,IUserInfoBLL
     {
         

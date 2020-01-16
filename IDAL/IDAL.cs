@@ -45,6 +45,11 @@ namespace IDAL
       
     }
 	
+	public partial interface ISensitiveWordDAL :IBaseDAL<SensitiveWord>
+    {
+      
+    }
+	
 	public partial interface IUserInfoDAL :IBaseDAL<UserInfo>
     {
       

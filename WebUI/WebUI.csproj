@@ -171,6 +171,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ActionEqualityComparer.cs" />
+    <Compile Include="Models\ArticleCommentViewModel.cs" />
     <Compile Include="Models\MyArributeFilter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

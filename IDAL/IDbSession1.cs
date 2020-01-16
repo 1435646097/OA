@@ -27,6 +27,8 @@ namespace IDAL
 	
 		IRoleInfoDAL RoleInfoDAL{get;}
 	
+		ISensitiveWordDAL SensitiveWordDAL{get;}
+	
 		IUserInfoDAL UserInfoDAL{get;}
 	}	
 }

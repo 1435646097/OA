@@ -46,6 +46,11 @@ namespace IBLL
        
     }   
 	
+	public partial interface ISensitiveWordBLL : IBaseBLL<SensitiveWord>
+    {
+       
+    }   
+	
 	public partial interface IUserInfoBLL : IBaseBLL<UserInfo>
     {
        

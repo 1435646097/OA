@@ -42,6 +42,10 @@ namespace DALFactory
         public IRoleInfoDAL RoleInfoDAL { get => AbstractFactory.CreateIRoleInfoDAL(); }
        
 	
+		//private ISensitiveWordDal _SensitiveWordDal;
+        public ISensitiveWordDAL SensitiveWordDAL { get => AbstractFactory.CreateISensitiveWordDAL(); }
+       
+	
 		//private IUserInfoDal _UserInfoDal;
         public IUserInfoDAL UserInfoDAL { get => AbstractFactory.CreateIUserInfoDAL(); }
        

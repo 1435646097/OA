@@ -10,6 +10,7 @@ using Common;
 using IBLL;
 using Model;
 using Model.Search;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -17,6 +18,8 @@ namespace WebUI.Controllers
     {
         IArticelClassBLL ArticelClassBLL = new ArticelClassBLL();
         IArticelBLL ArticelBLL = new ArticelBLL();
+        IArticelCommentBLL ArticelCommentBLL = new ArticelCommentBLL();
+        ISensitiveWordBLL SensitiveWordBLL = new SensitiveWordBLL();
         // GET: ArticleInfo
         public ActionResult Index()
         {
@@ -112,13 +115,66 @@ namespace WebUI.Controllers
 
             string htmlFile = Common.NVelocityHelper.RenderTemplate("ArticelTemplateInfo", article, "/ArticelTemplate/");
             DateTime addDate = article.AddDate;
-            string dir = "/ArticelHtml/" + addDate.Year + "/" + addDate.Month + "/" + addDate.Day+"/";
+            string dir = "/ArticelHtml/" + addDate.Year + "/" + addDate.Month + "/" + addDate.Day + "/";
             if (!Directory.Exists(Server.MapPath(dir)))
             {
                 Directory.CreateDirectory(Server.MapPath(dir));
             }
             string fulePath = dir + article.ID + ".html";
             System.IO.File.WriteAllText(Server.MapPath(fulePath), htmlFile);
+        }
+        /// <summary>
+        /// 添加评论信息
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult AddComment()
+        {
+            int id = int.Parse(Request["id"]);
+            string msg = Request["msg"];
+            if (SensitiveWordBLL.IsForbidWord(msg))
+            {
+                return Content("no:您的评论包含禁用词，不允许评论");
+            }
+            else if (SensitiveWordBLL.IsModWord(msg))
+            {
+                ArticelComment articelComment = new ArticelComment()
+                {
+                    AddDate = DateTime.Now,
+                    ArticelID = id,
+                    IsPass = 0,
+                    Msg = msg
+                };
+                ArticelCommentBLL.AddEntity(articelComment);
+                return Content("no:您的评论包含审查词，需要审核");
+            }
+            else
+            {
+                msg = SensitiveWordBLL.ReplaceWord(msg);
+                ArticelComment articelComment = new ArticelComment()
+                {
+                    AddDate = DateTime.Now,
+                    ArticelID = id,
+                    IsPass = 1,
+                    Msg = msg
+                };
+                ArticelCommentBLL.AddEntity(articelComment);
+                return Content("ok:评论成功");
+            }
+        }
+        public ActionResult LoadComment()
+        {
+            int id = int.Parse(Request["id"]);
+            var CommentList = ArticelCommentBLL.LoadEntity(a => a.ArticelID == id&&a.IsPass==1).ToList();
+            List<ArticleCommentViewModel> newList = new List<ArticleCommentViewModel>();
+            foreach (var articleModel in CommentList)
+            {
+                ArticleCommentViewModel model = new ArticleCommentViewModel();
+                TimeSpan ts = DateTime.Now - articleModel.AddDate;
+                model.AddDate = WebCommon.GetTimespan(ts);
+                model.Msg = articleModel.Msg;
+                newList.Add(model);
+            }
+            return Content(Common.SerializeHelper.SerializeToString(newList));
         }
     }
 }
