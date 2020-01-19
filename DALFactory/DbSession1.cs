@@ -34,6 +34,10 @@ namespace DALFactory
         public IDepartmentDAL DepartmentDAL { get => AbstractFactory.CreateIDepartmentDAL(); }
        
 	
+		//private IPhotoInfoDal _PhotoInfoDal;
+        public IPhotoInfoDAL PhotoInfoDAL { get => AbstractFactory.CreateIPhotoInfoDAL(); }
+       
+	
 		//private IR_UserInfo_ActionInfoDal _R_UserInfo_ActionInfoDal;
         public IR_UserInfo_ActionInfoDAL R_UserInfo_ActionInfoDAL { get => AbstractFactory.CreateIR_UserInfo_ActionInfoDAL(); }
        
@@ -48,6 +52,14 @@ namespace DALFactory
 	
 		//private IUserInfoDal _UserInfoDal;
         public IUserInfoDAL UserInfoDAL { get => AbstractFactory.CreateIUserInfoDAL(); }
+       
+	
+		//private IVideoClassDal _VideoClassDal;
+        public IVideoClassDAL VideoClassDAL { get => AbstractFactory.CreateIVideoClassDAL(); }
+       
+	
+		//private IVideoFileInfoDal _VideoFileInfoDal;
+        public IVideoFileInfoDAL VideoFileInfoDAL { get => AbstractFactory.CreateIVideoFileInfoDAL(); }
        
 	}	
 }

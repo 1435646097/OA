@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DALFactory", "DALFactory\DA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{99317831-6905-429E-8473-9C4220271FFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoServer", "VideoServer\VideoServer.csproj", "{F35AFAF1-3FD3-4A5C-851D-6A2B4D204082}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoConvertServer", "VideoConvertServer\VideoConvertServer.csproj", "{68396E91-8A4D-4BBA-A190-16CB49751710}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{99317831-6905-429E-8473-9C4220271FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99317831-6905-429E-8473-9C4220271FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99317831-6905-429E-8473-9C4220271FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F35AFAF1-3FD3-4A5C-851D-6A2B4D204082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F35AFAF1-3FD3-4A5C-851D-6A2B4D204082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F35AFAF1-3FD3-4A5C-851D-6A2B4D204082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F35AFAF1-3FD3-4A5C-851D-6A2B4D204082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68396E91-8A4D-4BBA-A190-16CB49751710}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68396E91-8A4D-4BBA-A190-16CB49751710}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68396E91-8A4D-4BBA-A190-16CB49751710}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68396E91-8A4D-4BBA-A190-16CB49751710}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

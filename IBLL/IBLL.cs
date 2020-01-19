@@ -36,6 +36,11 @@ namespace IBLL
        
     }   
 	
+	public partial interface IPhotoInfoBLL : IBaseBLL<PhotoInfo>
+    {
+       
+    }   
+	
 	public partial interface IR_UserInfo_ActionInfoBLL : IBaseBLL<R_UserInfo_ActionInfo>
     {
        
@@ -52,6 +57,16 @@ namespace IBLL
     }   
 	
 	public partial interface IUserInfoBLL : IBaseBLL<UserInfo>
+    {
+       
+    }   
+	
+	public partial interface IVideoClassBLL : IBaseBLL<VideoClass>
+    {
+       
+    }   
+	
+	public partial interface IVideoFileInfoBLL : IBaseBLL<VideoFileInfo>
     {
        
     }   

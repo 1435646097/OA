@@ -35,6 +35,11 @@ namespace IDAL
       
     }
 	
+	public partial interface IPhotoInfoDAL :IBaseDAL<PhotoInfo>
+    {
+      
+    }
+	
 	public partial interface IR_UserInfo_ActionInfoDAL :IBaseDAL<R_UserInfo_ActionInfo>
     {
       
@@ -51,6 +56,16 @@ namespace IDAL
     }
 	
 	public partial interface IUserInfoDAL :IBaseDAL<UserInfo>
+    {
+      
+    }
+	
+	public partial interface IVideoClassDAL :IBaseDAL<VideoClass>
+    {
+      
+    }
+	
+	public partial interface IVideoFileInfoDAL :IBaseDAL<VideoFileInfo>
     {
       
     }

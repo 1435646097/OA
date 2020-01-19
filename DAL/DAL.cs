@@ -37,6 +37,11 @@ namespace DAL
 
     }
 		
+	public partial class PhotoInfoDAL :BaseDAL<PhotoInfo>,IPhotoInfoDAL
+    {
+
+    }
+		
 	public partial class R_UserInfo_ActionInfoDAL :BaseDAL<R_UserInfo_ActionInfo>,IR_UserInfo_ActionInfoDAL
     {
 
@@ -53,6 +58,16 @@ namespace DAL
     }
 		
 	public partial class UserInfoDAL :BaseDAL<UserInfo>,IUserInfoDAL
+    {
+
+    }
+		
+	public partial class VideoClassDAL :BaseDAL<VideoClass>,IVideoClassDAL
+    {
+
+    }
+		
+	public partial class VideoFileInfoDAL :BaseDAL<VideoFileInfo>,IVideoFileInfoDAL
     {
 
     }

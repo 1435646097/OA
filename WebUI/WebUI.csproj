@@ -165,8 +165,10 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PhotoInfoController.cs" />
     <Compile Include="Controllers\RoleInfoController.cs" />
     <Compile Include="Controllers\UserInfoController.cs" />
+    <Compile Include="Controllers\VideoInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -871,6 +873,7 @@
     <Content Include="Content\Images\Program Files Folder.png" />
     <Content Include="Content\Images\Xp-G5 006.png" />
     <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jqzoom.css" />
     <Content Include="Content\ligerUI\js\core\base.js" />
     <Content Include="Content\ligerUI\js\core\inject.js" />
     <Content Include="Content\ligerUI\js\ligerui.all.js" />
@@ -1875,6 +1878,22 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="ImageUp\2015\10\10\b006e7d9-7e7c-4063-90fb-610b7d0aaee1.jpg" />
+    <Content Include="ImageUp\2015\10\13\0756cf70.jpg" />
+    <Content Include="ImageUp\2015\10\13\1d650652.jpg" />
+    <Content Include="ImageUp\2015\10\13\55800b4e.jpg" />
+    <Content Include="ImageUp\2015\10\13\5de00184.jpg" />
+    <Content Include="ImageUp\2015\10\13\8abaf076.jpg" />
+    <Content Include="ImageUp\2015\10\13\8afd5e78.jpg" />
+    <Content Include="ImageUp\2015\10\13\a8540f7d.jpg" />
+    <Content Include="ImageUp\2015\10\14\8161d75a.jpg" />
+    <Content Include="ImageUp\2015\10\14\90079676.jpg" />
+    <Content Include="ImageUp\2015\10\14\e0604652.jpg" />
+    <Content Include="ImageUp\2015\10\17\246e6869.jpg" />
+    <Content Include="ImageUp\2015\10\17\6f1b66d8.jpg" />
+    <Content Include="ImageUp\2015\10\17\afeaec37.jpg" />
+    <Content Include="ImageUp\2015\10\17\fd7553fe.jpg" />
+    <Content Include="ImageUp\2015\10\18\c3e97e8b.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="libman.json" />
@@ -1894,6 +1913,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.easyui.min.js" />
+    <Content Include="Scripts\jquery.jqzoom.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -1946,6 +1966,9 @@
     <Content Include="Views\ArticelClass\Index.cshtml" />
     <Content Include="Views\ArticleInfo\Index.cshtml" />
     <Content Include="Views\ArticleInfo\ShowAddInfo.cshtml" />
+    <Content Include="Views\PhotoInfo\Index.cshtml" />
+    <Content Include="Views\VideoInfo\Index.cshtml" />
+    <Content Include="Views\VideoInfo\ShowAddVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

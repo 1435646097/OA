@@ -62,6 +62,16 @@ namespace BLL
         }
     }   
 	
+	public partial class PhotoInfoBLL :BaseBLL<PhotoInfo>,IPhotoInfoBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.PhotoInfoDAL;
+
+        }
+    }   
+	
 	public partial class R_UserInfo_ActionInfoBLL :BaseBLL<R_UserInfo_ActionInfo>,IR_UserInfo_ActionInfoBLL
     {
         
@@ -98,6 +108,26 @@ namespace BLL
         public override void GetCurrentDAL()
         {
             this.CurrentDAL = this.DbSession.UserInfoDAL;
+
+        }
+    }   
+	
+	public partial class VideoClassBLL :BaseBLL<VideoClass>,IVideoClassBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.VideoClassDAL;
+
+        }
+    }   
+	
+	public partial class VideoFileInfoBLL :BaseBLL<VideoFileInfo>,IVideoFileInfoBLL
+    {
+        
+        public override void GetCurrentDAL()
+        {
+            this.CurrentDAL = this.DbSession.VideoFileInfoDAL;
 
         }
     }   

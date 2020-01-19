@@ -22,6 +22,10 @@
         <AssociationConnector Association="ItcastCmsModel.FK_ArticelArticelComment" />
         <AssociationConnector Association="ItcastCmsModel.ArticelClassArticel" />
         <EntityTypeShape EntityType="ItcastCmsModel.SensitiveWord" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ItcastCmsModel.PhotoInfo" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ItcastCmsModel.VideoClass" Width="1.5" PointX="12.375" PointY="1.5" />
+        <EntityTypeShape EntityType="ItcastCmsModel.VideoFileInfo" Width="1.5" PointX="14.625" PointY="1" />
+        <AssociationConnector Association="ItcastCmsModel.VideoClassVideoFileInfo" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

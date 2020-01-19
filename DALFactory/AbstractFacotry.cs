@@ -91,6 +91,21 @@ namespace DALFactory
            return CreateInstances(fullName) as IDepartmentDAL;
         }
 		
+	    public static IPhotoInfoDAL CreateIPhotoInfoDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".PhotoInfoDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IPhotoInfoDAL;
+           string fullName = nameSpace + ".PhotoInfoDAL";
+           return CreateInstances(fullName) as IPhotoInfoDAL;
+        }
+		
 	    public static IR_UserInfo_ActionInfoDAL CreateIR_UserInfo_ActionInfoDAL()
         {
 
@@ -149,6 +164,36 @@ namespace DALFactory
            // return obj as IUserInfoDAL;
            string fullName = nameSpace + ".UserInfoDAL";
            return CreateInstances(fullName) as IUserInfoDAL;
+        }
+		
+	    public static IVideoClassDAL CreateIVideoClassDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".VideoClassDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IVideoClassDAL;
+           string fullName = nameSpace + ".VideoClassDAL";
+           return CreateInstances(fullName) as IVideoClassDAL;
+        }
+		
+	    public static IVideoFileInfoDAL CreateIVideoFileInfoDAL()
+        {
+
+           // string classFulleName = ConfigurationManager.AppSettings["DALNameSpace"] + ".VideoFileInfoDAL";
+
+
+            //object obj = Assembly.Load(ConfigurationManager.AppSettings["DalAssembly"]).CreateInstance(classFulleName, true);
+            //var obj  = GetInstance(ConfigurationManager.AppSettings["DalAssembly"], classFulleName);
+
+
+           // return obj as IVideoFileInfoDAL;
+           string fullName = nameSpace + ".VideoFileInfoDAL";
+           return CreateInstances(fullName) as IVideoFileInfoDAL;
         }
 	}
 	

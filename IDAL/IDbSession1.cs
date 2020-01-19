@@ -23,6 +23,8 @@ namespace IDAL
 	
 		IDepartmentDAL DepartmentDAL{get;}
 	
+		IPhotoInfoDAL PhotoInfoDAL{get;}
+	
 		IR_UserInfo_ActionInfoDAL R_UserInfo_ActionInfoDAL{get;}
 	
 		IRoleInfoDAL RoleInfoDAL{get;}
@@ -30,5 +32,9 @@ namespace IDAL
 		ISensitiveWordDAL SensitiveWordDAL{get;}
 	
 		IUserInfoDAL UserInfoDAL{get;}
+	
+		IVideoClassDAL VideoClassDAL{get;}
+	
+		IVideoFileInfoDAL VideoFileInfoDAL{get;}
 	}	
 }
