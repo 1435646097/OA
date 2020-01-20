@@ -1941,6 +1941,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TextTemplate1.tt</DependentUpon>
     </Content>
+    <Content Include="VideoPlay\AC_RunActiveContent.js" />
+    <Content Include="VideoPlay\OSplayer.swf" />
+    <Content Include="VideoPlay\rac.js" />
+    <Content Include="Videos\Flv\c76d7ac8.jpg" />
     <Content Include="Views\Shared\Error.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1969,6 +1973,8 @@
     <Content Include="Views\PhotoInfo\Index.cshtml" />
     <Content Include="Views\VideoInfo\Index.cshtml" />
     <Content Include="Views\VideoInfo\ShowAddVideo.cshtml" />
+    <Content Include="Videos\Flv\c76d7ac8.flv" />
+    <Content Include="Views\VideoInfo\PlayVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

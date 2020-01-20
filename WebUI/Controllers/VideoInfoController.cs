@@ -91,8 +91,16 @@ namespace WebUI.Controllers
                     return Content("ok");
                 }
             }
-
-
+        }
+        /// <summary>
+        /// 播放视频
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult PlayVideo()
+        {
+            int id = int.Parse(Request["id"]);
+            ViewBag.VideoInfo = VideoFileInfoBLL.LoadEntity(a => a.ID == id).FirstOrDefault();
+            return View();
         }
     }
 }

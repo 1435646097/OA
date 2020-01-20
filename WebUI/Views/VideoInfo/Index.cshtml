@@ -49,11 +49,11 @@
                             return (eval(value.replace(/\/Date\((\d+)\)\//gi, "new Date($1)")).toLocaleDateString());
                         }
                     }, {
-                        field: 'articleDetail', title: '详情', width: 80, align: 'right'
-                        //formatter: function (value, row, index) {
-                        //    var addDate = ChangeDateFormat(row.AddDate);
-                        //    return "<a href='/ArticelHtml/" + addDate + "/" + row.ID + ".html'>详情</a>"
-                        //}
+                        field: 'articleDetail', title: '详情', width: 80, align: 'right',
+                        formatter: function (value, row, index) {
+                            var str = "<a href='javascript:void(0)' class='details' ids=" + row.ID + " >详细</a>";
+                            return str;
+                        }
                     }
                 ]],
                 toolbar: [{
@@ -78,36 +78,42 @@
                     handler: function () {
 
                     }
-                }],
+                }], onLoadSuccess: function () {
+                    $(".details").click(function () {
+                        var id = $(this).attr("ids");
+                        var url = "/VideoInfo/PlayVideo?id=" + id;
+                        window.open(url);
+                    });
+                }
             });
         }
-          //添加视频
-         function addVideo() {
-             $("#AddIframe").attr("src", "/VideoInfo/ShowAddVideo");
-             $("#AddIframe").css("display", "block");
-             $('#AddIframe').dialog({
-                 title: '添加视频信息',
-                 width: 900,
-                 height: 600,
-                 collapsible: true,
-                 maximizable: true,
-                 resizable: true,
-                 modal: true,
-                 buttons: [{
-                     text: 'Ok',
-                     iconCls: 'icon-ok',
-                     handler: function () {
-                         var childWindow = $("#AddIframe")[0].contentWindow;
-                         childWindow.subForm();
-                     }
-                 }, {
-                     text: 'Cancel',
-                     handler: function () {
-                         $('#addDiv').dialog('close');
-                     }
-                 }]
-             });
-         }
+        //添加视频
+        function addVideo() {
+            $("#AddIframe").attr("src", "/VideoInfo/ShowAddVideo");
+            $("#AddIframe").css("display", "block");
+            $('#AddIframe').dialog({
+                title: '添加视频信息',
+                width: 900,
+                height: 600,
+                collapsible: true,
+                maximizable: true,
+                resizable: true,
+                modal: true,
+                buttons: [{
+                    text: 'Ok',
+                    iconCls: 'icon-ok',
+                    handler: function () {
+                        var childWindow = $("#AddIframe")[0].contentWindow;
+                        childWindow.subForm();
+                    }
+                }, {
+                    text: 'Cancel',
+                    handler: function () {
+                        $('#addDiv').dialog('close');
+                    }
+                }]
+            });
+        }
     </script>
 </head>
 <body>
